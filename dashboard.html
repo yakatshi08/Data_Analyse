@@ -1,0 +1,190 @@
+!DOCTYPE html
+html lang=fr
+head
+  meta charset=UTF-8 
+  meta name=viewport content=width=device-width, initial-scale=1.0 
+  titleDashboard Innovanttitle
+  style
+    root {
+      --bg-color #12131a;
+      --card-bg #1e1f29;
+      --accent #4a90e2;
+      --accent-light #5fa0f5;
+      --text-color #e0e0e0;
+      --muted-text #8d94a1;
+      --shadow rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin 0;
+      font-family 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color var(--bg-color);
+      color var(--text-color);
+    }
+
+    header {
+      background-color var(--card-bg);
+      padding 1rem 2rem;
+      box-shadow 0 2px 5px var(--shadow);
+      display flex;
+      justify-content space-between;
+      align-items center;
+    }
+
+    header h1 {
+      font-size 1.5rem;
+      margin 0;
+      color var(--accent);
+    }
+
+    .lang-switcher select {
+      background-color var(--card-bg);
+      border 1px solid var(--accent-light);
+      color var(--text-color);
+      padding 0.3rem 0.6rem;
+      border-radius 0.3rem;
+      font-size 0.9rem;
+    }
+
+    .container {
+      display grid;
+      grid-template-columns repeat(auto-fill, minmax(250px, 1fr));
+      gap 1.5rem;
+      padding 2rem;
+    }
+
+    .card {
+      background-color var(--card-bg);
+      border-radius 1rem;
+      box-shadow 0 8px 20px var(--shadow);
+      padding 1.5rem;
+      display flex;
+      flex-direction column;
+      justify-content center;
+    }
+
+    .card h2 {
+      font-size 1.2rem;
+      margin-bottom 0.5rem;
+    }
+
+    .card p {
+      font-size 0.9rem;
+      color var(--muted-text);
+    }
+
+    .metric {
+      font-size 2rem;
+      font-weight bold;
+      color var(--accent-light);
+    }
+
+    footer {
+      text-align center;
+      padding 1rem;
+      font-size 0.8rem;
+      color var(--muted-text);
+    }
+  style
+head
+body
+  header
+    h1 id=dashboard-titleDashboard Analytiqueh1
+    div class=lang-switcher
+      select onchange=switchLang(this.value)
+        option value=frFRoption
+        option value=enENoption
+        option value=esESoption
+        option value=ptPToption
+      select
+    div
+  header
+
+  main class=container
+    div class=card
+      h2 id=label-revenueChiffre d'affairesh2
+      div class=metric€120,450div
+      p id=desc-revenue+8,2% par rapport au mois dernierp
+    div
+
+    div class=card
+      h2 id=label-usersUtilisateurs actifsh2
+      div class=metric3,540div
+      p id=desc-users+3,4% cette semainep
+    div
+
+    div class=card
+      h2 id=label-conversionTaux de conversionh2
+      div class=metric4.7%div
+      p id=desc-conversionStable par rapport au mois dernierp
+    div
+
+    div class=card
+      h2 id=label-subscribersNouveaux abonnésh2
+      div class=metric+245div
+      p id=desc-subscribersCampagne marketing en coursp
+    div
+  main
+
+  footer
+    © 2025 Mon Outil d’Analyse de Données. Tous droits réservés.
+  footer
+
+  script
+    const translations = {
+      en {
+        dashboard-title Analytics Dashboard,
+        label-revenue Revenue,
+        desc-revenue +8.2% compared to last month,
+        label-users Active Users,
+        desc-users +3.4% this week,
+        label-conversion Conversion Rate,
+        desc-conversion Stable compared to last month,
+        label-subscribers New Subscribers,
+        desc-subscribers Marketing campaign ongoing
+      },
+      es {
+        dashboard-title Panel Analítico,
+        label-revenue Ingresos,
+        desc-revenue +8.2% respecto al mes pasado,
+        label-users Usuarios activos,
+        desc-users +3.4% esta semana,
+        label-conversion Tasa de conversión,
+        desc-conversion Estable respecto al mes pasado,
+        label-subscribers Nuevos suscriptores,
+        desc-subscribers Campaña de marketing en curso
+      },
+      pt {
+        dashboard-title Painel Analítico,
+        label-revenue Receita,
+        desc-revenue +8.2% em relação ao mês passado,
+        label-users Usuários ativos,
+        desc-users +3.4% esta semana,
+        label-conversion Taxa de conversão,
+        desc-conversion Estável em relação ao mês passado,
+        label-subscribers Novos assinantes,
+        desc-subscribers Campanha de marketing em andamento
+      },
+      fr {
+        dashboard-title Dashboard Analytique,
+        label-revenue Chiffre d'affaires,
+        desc-revenue +8,2% par rapport au mois dernier,
+        label-users Utilisateurs actifs,
+        desc-users +3,4% cette semaine,
+        label-conversion Taux de conversion,
+        desc-conversion Stable par rapport au mois dernier,
+        label-subscribers Nouveaux abonnés,
+        desc-subscribers Campagne marketing en cours
+      }
+    };
+
+    function switchLang(lang) {
+      const dict = translations[lang];
+      Object.keys(dict).forEach(id = {
+        const el = document.getElementById(id);
+        if (el) el.textContent = dict[id];
+      });
+    }
+  script
+body
+html
